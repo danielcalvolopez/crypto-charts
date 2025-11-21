@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e4e4de;
+  --foreground: #1b1b1b;
+  --secondary: #c4c5ba;
+  --accent: #595f39;
+  /* --switch-checked: #595f39; */
+  --switch-unchecked: #c4c5ba;
+  --switch-thumb: #e4e4de;
+
+  --input: #c4c5ba;
+  --muted-foreground: #7a7a7a;
+  --ring: #595f396f;
+}
+
+:root.dark {
+  --background: #1b1b1b;
+  --foreground: #e4e4de;
+  --secondary: #3a3a3a;
+  --accent: #595f39;
+  --switch-checked: #c4c5ba;
+  /* --switch-unchecked: #4b5563; */
+  --switch-thumb: #e4e4de;
+  --border-input: #1b1b1b;
+
+  --input: #c4c5ba8d;
+  --muted-foreground: #e4e4debe;
+  --ring: #595f39;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--background);
 }
