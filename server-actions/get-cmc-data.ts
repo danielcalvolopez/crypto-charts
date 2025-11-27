@@ -84,8 +84,6 @@ export const getCMCListings = async (
     "X-CMC_PRO_API_KEY": apiKey,
   }
 
-  console.log("CALL")
-
   const response = await fetchGet<GetCMCListingsResponse>({
     url,
     nextTags: ["get-cmc-listings"],
